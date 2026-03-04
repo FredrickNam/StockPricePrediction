@@ -42,7 +42,7 @@ Deep evaluation using quantitative investment metrics such as Maximum Drawdown (
 <br>
 
 ## 📂 Repository Structure
-'''
+```  
 Stock-Pricing-Prediction/  
 ├── data/                  # Local data storage (Ignored by Git)  
 │   ├── raw/               # Raw crawled stock data   
@@ -61,7 +61,7 @@ Stock-Pricing-Prediction/
 ├── .gitignore             # Git ignore file (Excludes data, venv, keys)  
 ├── requirements.txt       # Project dependencies (PyTorch, Numpy, Pandas, etc.)   
 └── README.md              # Project overview and execution guide  
-'''
+```
 
 <br>
 
