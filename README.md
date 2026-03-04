@@ -67,7 +67,7 @@ Stock-Pricing-Prediction/
 
 ## 🛠️ Tech Stack
 
-Language: <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white"/>
+Language: Python
 
 Deep Learning: PyTorch (Customized), Numpy, Pandas
 
