@@ -7,7 +7,7 @@ An End-to-End Stock Pricing Prediction System built from scratch using Deep Lear
 
 <br>
 
-##💡 About The Project
+## 💡 About The Project
 This project aims to develop a sophisticated stock pricing prediction algorithm based on non-linear financial data. Moving away from traditional 'Black Box' API calls, our team focuses on a Deep Dive Reproduction.
 
 We manually construct complex neural network architectures and mathematical formulas from the ground up to secure true AI engineering capabilities. By combining the sequential understanding of Transformer models with the decision-making power of Reinforcement Learning (RL), we build an end-to-end autonomous trading pipeline.
