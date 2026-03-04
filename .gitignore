@@ -1,0 +1,15 @@
+# 1. Ignore data files (Crucial)
+data/
+*.csv
+*.xlsx
+
+# 2. Ignore Python and Jupyter Notebook temporary files
+__pycache__/
+.ipynb_checkpoints/
+
+# 3. Ignore virtual environment and package folders
+venv/
+env/
+
+# 4. Ignore OS-generated files (for Mac users)
+.DS_Store
