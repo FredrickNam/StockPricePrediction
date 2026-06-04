@@ -1,85 +1,15 @@
-# 📈 Stock Pricing Prediction: A White-Box Approach
+# 📚 StudyRoom
 
-<br>
+이 공간은 팀원들이 주가 예측 프로젝트를 진행하며 필요한 기술을 학습하고, 논문을 리뷰하거나 개인적인 실험을 자유롭게 진행하는 스터디 및 연구용 디렉토리입니다. 프로젝트 메인 코드에 반영하기 전, 다양한 아이디어를 마음껏 테스트하고 기록해 보세요!
 
-## 📖 About This Repository
-An End-to-End Stock Pricing Prediction System built from scratch using Deep Learning and Reinforcement Learning. This project focuses on a 'White-Box' approach, reproducing core papers like Transformer with Python and PyTorch.
+## 📂 폴더 구조
 
-<br>
+*   **`notebooks/`**: 팀원 각자의 개인 폴더(`Changwoo Nam`, `Jeonghun_Kim`, `Yehwan Jang`)가 마련되어 있습니다. Jupyter Notebook 등을 활용해 PyTorch, 데이터 분석, 강화학습 등 각자 맡은 파트와 관련된 실습과 실험을 진행합니다.
+*   **`papers/`**: 금융 시장 예측, 딥러닝(Transformer, LSTM 등), 강화학습에 관련된 참고 논문 파일과 리뷰 노트를 보관하는 곳입니다.
+*   **`tests/`**: 간단한 코드 스니펫이나 단위 기능들을 가볍게 테스트해 보는 용도의 폴더입니다.
 
-## 💡 About The Project
-This project aims to develop a sophisticated stock pricing prediction algorithm based on non-linear financial data. Moving away from traditional 'Black Box' API calls, our team focuses on a Deep Dive Reproduction.
+## ✍️ 활용 방법
 
-We manually construct complex neural network architectures and mathematical formulas from the ground up to secure true AI engineering capabilities. By combining the sequential understanding of Transformer models with the decision-making power of Reinforcement Learning (RL), we build an end-to-end autonomous trading pipeline.
-
-<br>
-
-## ✨ Key Features
-### End-to-End Data Engineering 🌐
-
-Custom web crawlers built to fetch raw stock prices, volumes etc.
-
-Pipelines for handling missing values, removing outliers, and normalizing time-series data.
-
-### White-Box Deep Learning (Transformer) 🧠
-
-PyTorch implementations inheriting from nn.Module without relying on high-level pre-built layers.
-
-Reproduction of the 'Attention Is All You Need' (2017) architecture, mathematically mapped and customized for noise-heavy time-series forecasting.
-
-### Reinforcement Learning Trading Environment 🤖
-
-Custom stock trading simulator calculating realistic returns, including transaction fees.
-
-Integration of the custom Transformer as a feature extractor, feeding into an RL policy network to determine optimal Buy/Sell actions.
-
-### Robust Backtesting & Analytics 📊
-
-Comprehensive backtesting using historical data (unseen during training).
-
-Deep evaluation using quantitative investment metrics such as Maximum Drawdown (MDD), win rates, and profit/loss ratios.
-
-<br>
-
-## 📂 Repository Structure
-```  
-Stock-Pricing-Prediction/  
-├── data/                  # Local data storage (Ignored by Git)  
-│   ├── raw/               # Raw crawled stock data   
-│   └── processed/         # Preprocessed and normalized data  
-├── docs/                  # Project documentation & Study notes  
-│   ├── papers/            # Reference papers (Transformer, PPO, etc.)  
-│   └── mathematics/       # Mathematical derivations and markdown notes  
-├── notebooks/             # Jupyter notebooks for experiments & visualization  
-│   └── week01_tensor/     # Week 1: Tensor manipulation and matrix math practice   
-├── src/                   # Core source code modules  
-│   ├── data_pipeline/     # Web crawlers (Selenium/BS4) & preprocessing scripts  
-│   ├── models/            # Custom PyTorch nn.Module architectures  
-│   ├── rl_env/            # Trading simulator and reward calculation logic  
-│   └── backtesting/       # Backtesting and performance metric (MDD) analysis  
-├── tests/                 # Unit testing scripts (e.g., Tensor I/O flow validation)  
-├── .gitignore             # Git ignore file (Excludes data, venv, keys)  
-├── requirements.txt       # Project dependencies (PyTorch, Numpy, Pandas, etc.)   
-└── README.md              # Project overview and execution guide  
-```
-
-<br>
-
-## 🛠️ Tech Stack
-
-Language: Python
-
-Deep Learning: PyTorch (Customized), Numpy, Pandas
-
-Data Collection: Selenium, BeautifulSoup
-
-<br>
-
-## 👥 Team
-Changwoo Nam (Project Lead / Model Architecture & End-to-End Integration)
-
-Junghoon Kim (Data Pipeline & Backtesting System)
-
-Yehwan Jang (RL Environment & Hyperparameter Optimization)
-
-Developed as part of the 2026-1 Creative Semester Project.
+1.  **자유로운 실험**: 새로운 개념을 공부하거나 코드를 짜볼 때, 메인 코드에 영향을 주지 않으니 각자의 폴더에서 자유롭게 테스트해 보세요.
+2.  **지식 공유**: 유익한 논문을 읽었거나 좋은 인사이트를 얻었다면, 다른 팀원들도 참고할 수 있도록 이곳에 요약이나 노트를 남겨주세요.
+3.  **독립된 공간**: 이 폴더 내의 내용들은 프로젝트의 메인 파이프라인(예: `src/` 폴더)과는 분리된 샌드박스 환경입니다. 편하게 부딪혀보고 배우는 공간으로 활용해 주시면 됩니다.
