@@ -112,7 +112,8 @@ def add_features(df: pd.DataFrame) -> pd.DataFrame:
 def load_cached(output_file: str) -> pd.DataFrame | None:
     """
     이미 전처리된 sp500_features.csv가 존재하면 로드하여 반환합니다.
-    --force 플래그가 있으면 None을 반환하여 재처리를 유도합니다.
+    단, data/raw/ 내의 최신 파일이 전처리 결과 파일보다 새로우면 캐시를 무시합니다.
+    --force 플래그가 있으면 무조건 None을 반환하여 강제 재처리를 유도합니다.
 
     Args:
         output_file (str): 전처리 결과 CSV 경로
@@ -126,17 +127,29 @@ def load_cached(output_file: str) -> pd.DataFrame | None:
         logger.info("--force 플래그 감지 → 기존 캐시 무시, 전체 재처리합니다.")
         return None
 
-    if os.path.exists(output_file):
-        file_size_mb = os.path.getsize(output_file) / (1024 ** 2)
-        logger.info(
-            f"✅ 전처리 캐시 발견: {output_file}  ({file_size_mb:.1f} MB)"
-        )
-        logger.info("   → 재처리 없이 기존 파일을 로드합니다. 강제 재처리: --force")
-        df = pd.read_csv(output_file, parse_dates=["Date"])
-        logger.info(f"   로드 완료: {df.shape[0]:,}행 × {df.shape[1]}열")
-        return df
+    if not os.path.exists(output_file):
+        return None
 
-    return None  # 파일 없음 → 정상 처리 진행
+    # 자동 갱신 로직: raw 데이터의 수정 시간이 output_file 보다 최신인지 확인
+    raw_dir = os.path.join(os.path.dirname(os.path.dirname(output_file)), "raw")
+    if os.path.exists(raw_dir):
+        raw_files = [os.path.join(raw_dir, f) for f in os.listdir(raw_dir) if f.endswith(".csv")]
+        if raw_files:
+            latest_raw_time = max(os.path.getmtime(f) for f in raw_files)
+            output_time = os.path.getmtime(output_file)
+            
+            if latest_raw_time > output_time:
+                logger.info("신규 원본 데이터(raw) 업데이트가 감지되었습니다. 자동으로 기존 캐시를 무시하고 재처리합니다.")
+                return None
+
+    file_size_mb = os.path.getsize(output_file) / (1024 ** 2)
+    logger.info(
+        f"✅ 최신 전처리 캐시 발견: {output_file}  ({file_size_mb:.1f} MB)"
+    )
+    logger.info("   → 재처리 없이 기존 파일을 로드합니다. 강제 재처리: --force")
+    df = pd.read_csv(output_file, parse_dates=["Date"])
+    logger.info(f"   로드 완료: {df.shape[0]:,}행 × {df.shape[1]}열")
+    return df
 
 
 def run_pipeline() -> None:

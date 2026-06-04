@@ -121,9 +121,9 @@ python data_collection/sp500_incremental_update.py
 ```
 
 **2-2. 전처리 및 피처 엔지니어링 갱신**  
-새로 추가된 데이터가 포함된 전체 피처를 갱신합니다. 기존 캐시를 덮어쓰기 위해 반드시 `--force` 옵션을 사용합니다.
+새로 추가된 데이터가 포함된 전체 피처를 갱신합니다. 스크립트가 새로 다운로드된 데이터의 갱신 시간을 자동으로 감지하여 전처리를 다시 수행하므로, 별도의 옵션 없이 실행 버튼만 누르시면 됩니다.
 ```bash
-python feature_engineering/build_features.py --force
+python feature_engineering/build_features.py
 ```
 
 **2-3. 일일 점진적 학습 (Online Learning)**  
